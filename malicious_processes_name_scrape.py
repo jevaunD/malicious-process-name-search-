@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
-
 driver = webdriver.Chrome(options=Options())
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
@@ -30,7 +29,10 @@ def process_grabber():
     except Exception:
         print("An Error occurred!!")
 
-    print(processes)
+    with open('process_names.txt', 'w') as nam:
+        for names in processes:
+            nam.write(str(names))
+
         
     
 process_grabber()
