@@ -16,7 +16,19 @@ def process_grabber():
     def scrape(): #function that finds the names and adds them into the list
         for tr in tbody.find_elements(By.XPATH, '//tr'): #loops through the table
             row = [item.text for item in tr.find_elements(By.XPATH, '//td')] #gather the process names into a list
-            processes.append(row) #adds them to the list
+        print(row[1:2])
+        print(row[7:8])
+        print(row[13:14])
+        print(row[19:20])
+        print(row[25:26])
+        print(row[31:32])
+        print(row[37:38])
+        print(row[43:44])
+        print(row[49:50])
+        print(row[55:56])
+
+        # processes.append(row) #adds them to the list
+            
 
     scrape() #runs the function
 
@@ -29,9 +41,15 @@ def process_grabber():
     except Exception:
         print("An Error occurred!!")
 
-    with open('process_names.txt', 'w') as nam:
-        for names in processes:
-            nam.write(str(names))
+    # with open('process_names.txt', 'w') as nam:
+    #     for names in processes:
+    #         nam.write(str(names))
+    #         nam.close()
+
+    #This removes the square brackets and apostrophes from the malicious processes' names
+    # with open('clean.csv', 'r') as clean:
+    #     for line in clean:
+    #         print(line[2:-3])
 
         
     
